@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Jugador</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/2a1237171e.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Gaming, Team, PcGamer">
+    <link rel="icon" href="favicon.png" type="image/png">
+</head>
+
+
+<body>
+    <div class="contenedor">
+        <div class="item1">
+            <header>
+                <img class="logo" src="favicon.png" alt="Logo">
+                <h1 class="headerhome">502 Gaming</h1>
+                <nav>
+                    <ul class="ulnav">
+                        <li class="linav"><a href="index.html"><i class="fa-solid fa-house"></i></a></li>
+                        <li class="linav"><a href="quienes.html"><i class="fa-solid fa-circle-question"></i></a></li>
+                        <li class="linav"><a href="equipo.html"><i class="fa-solid fa-users"></i></a></li>
+                        <li class="linav"><a href="eventos.html"><i class="fa-solid fa-calendar-days"></i></a></li>
+                        <li class="linav"><a href="contacto.html"><i class="fa-solid fa-address-book"></i></a></li>
+                        
+                        <li class="linav"><a href="proyectoBuscador.html"><i class="fa-solid fa-screwdriver-wrench"></i></a></li>
+                        <li class="linav"><a href="Base.html"><i class="fa-solid fa-database"></i></a></li>
+                    </ul>
+                </nav>
+                <h1 class="headerhome">    Modificar</h1>
+            </header>
+        </div>
+    <div class="item2"><h2>¿Necesitas actualizar la información de un jugador? Utiliza esta sección para modificar los datos existentes y asegúrate de mantener la información del equipo actualizada.
+    </h2></div>
+<div class="item3">
+    <h1>Modificar Jugador</h1>
+    <div id="app">
+        <form @submit.prevent="obtenerJugador">
+            <label for="codigo">Código:</label>
+            <input type="number" v-model="codigo" required><br>
+            <button type="submit">Modificar Jugador</button>
+            <br>
+            <a href="index.html">Menu principal</a>
+        </form>
+
+
+        <div v-if="mostrarDatosJugador">
+            <h2>Datos del Jugador</h2>
+            <form @submit.prevent="guardarCambios">
+                <label for="nombreModificar">Nombre:</label>
+                <input type="text" id="nombreModificar" v-model="nombre" required><br>
+
+                <label for="apellidoModificar">Apellido:</label>
+                <input type="text" id="apellidoModificar" v-model="apellido" required><br>
+
+
+                <label for="paisModificar">País:</label>
+                <input type="text" id="paisModificar" v-model="pais" required><br>
+
+
+                <label for="edadModificar">Edad:</label>
+                <input type="number" id="edadModificar" v-model="edad" required><br>
+
+                <label for="juegoModificar">Juedo:</label>
+                <input type="text" id="juegoModificar" v-model="juego" required><br>
+
+
+                <img v-if="imagen_url && !imagenSeleccionada" :src="'https://www.pythonanywhere.com/user/ferronia/files/home/ferronia/static/img/' + imagen_url"
+                    alt="Imagen del jugador" style="max-width: 200px;">
+
+
+                <img v-if="imagenSeleccionada" :src="imagenUrlTemp" alt="Vista previa de la nueva imagen"
+                    style="max-width: 200px;">
+
+
+                <label for="nuevaImagen">Nueva Imagen:</label>
+                <input type="file" id="nuevaImagen" @change="seleccionarImagen"><br>
+
+
+                <label for="discordModificar">Discord:</label>
+                <input type="text" id="discordModificar" v-model="discord" required><br>
+
+
+                <button type="submit">Guardar Cambios</button>
+                <a href="modificaciones.html">Cancelar</a>
+            </form>
+        </div>
+    </div>
+    <div class="seccion-botones">
+        <ul class="ulsponsors">
+            <br>
+            <li class="sponsors"><button onclick="window.location.href='altas.html'" class="circle"><i class="fa-solid fa-plus"></i></button></li>
+            <li class="sponsors"><button onclick="window.location.href='listado.html'" class="circle"><i class="fa-solid fa-list"></i></button></li>
+            <li class="sponsors"><button onclick="window.location.href='modificaciones.html'" class="circle"><i class="fa-solid fa-pen-to-square"></i></button></li>
+            <li class="sponsors"><button onclick="window.location.href='listadoEliminar.html'" class="circle"><i class="fa-solid fa-trash"></i></button></li>
+        </ul>
+    </div>
+</div>
+
+
+    </div>
+
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="modificaciones.js"></script>
+    <div class="item4">
+        <footer>
+            <div>
+                <h1>Nuestros Sponsors</h1>
+                <ul class="ulsponsors">
+                    <li class="sponsors">
+                        <a href="https://www.nvidia.com" target="_blank">
+                            <div class="circle" >
+                                <img src="nvidia-icon.png" alt="nvidia-website">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="sponsors">
+                        <a href="https://www.intel.la" target="_blank">
+                            <div class="circle" >
+                                <img src="intel-icon.png" alt="intel-website">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="sponsors">
+                        <a href="https://www.amazon.com" target="_blank">
+                            <div class="circle">
+                                <img src="amazon-icon.png" alt="amazon-website">
+                            </div>
+                        </a>
+                    </li>
+                    <li class="sponsors">
+                        <a href="https://www.mcdonalds.com.ar" target="_blank">
+                            <div class="circle">
+                                <img src="mcdonalds-icon.png" alt="mcdonalds-website">
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+               
+            </div>
+        
+            <p class="derechos">Derechos Reservados. [...] 2023</p>
+        </footer>
+    </div>
+
+</body>
+</html>
